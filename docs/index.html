@@ -8,7 +8,22 @@
     <title>Smokeless</title>
 </head>
 <body>
-    App
+    <div>
+        <div>
+            <label for="start">First cigarette time</label><br>
+            <input type="time" id="start">
+        </div>
+        <div>
+            <label for="end">Last cigarette time</label><br>
+            <input type="time" id="end">
+        </div>
+        <input type="number" id="cigarettes">
+        <button id="generate">Generate Schedule</button>
+    </div>
+    <div id="schedule">
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
