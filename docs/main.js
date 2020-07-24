@@ -31,16 +31,16 @@ function generate() {
   for (let i = 0; i < cigarettesLimit; i++) {
     curDateTime = curDateTime.add(period, 'minutes')
     res.entries.push(curDateTime.format('HH:mm'))
-    createScheduleElement(curDateTime.format('HH:mm'))
+    createScheduleElement(`${i + 1}. ${curDateTime.format('HH:mm')}`)
   }
 
   localStorage.setItem('schedule', JSON.stringify(res))
 }
 
-function createScheduleElement(time) {
+function createScheduleElement(text) {
   const el = document.createElement('div')
   el.classList.add('schedule-element')
-  el.innerText = time
+  el.innerText = text
   scheduleElement.appendChild(el)
 }
 
@@ -53,5 +53,5 @@ function restore() {
   startInput.value = res.start
   endInput.value = res.end
   cigarettesCountInput.value = res.cigarettesLimit
-  res.entries.forEach(entry => createScheduleElement(entry))
+  res.entries.forEach((entry, i) => createScheduleElement(`${i + 1}. ${entry}`))
 }
