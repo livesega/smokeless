@@ -16,7 +16,7 @@ function generate() {
   const cigarettesLimit = cigarettesCountInput.value
   const diff = moment.utc(moment(end).diff(moment(start)))
   const diffMinutes = moment.duration(moment(diff)).asMinutes()
-  const period = diffMinutes / cigarettesLimit
+  const period = diffMinutes / (cigarettesLimit - 1)
 
   clearSchedule()
 
@@ -27,11 +27,11 @@ function generate() {
     entries: []
   }
 
-  let curDateTime = moment(start).subtract(period, 'minutes')
+  let curDateTime = moment(start)
   for (let i = 0; i < cigarettesLimit; i++) {
-    curDateTime = curDateTime.add(period, 'minutes')
     res.entries.push(curDateTime.format('HH:mm'))
     createScheduleElement(`${i + 1}. ${curDateTime.format('HH:mm')}`)
+    curDateTime = curDateTime.add(period, 'minutes')
   }
 
   localStorage.setItem('schedule', JSON.stringify(res))
