@@ -49,9 +49,18 @@ function clearSchedule() {
 }
 
 function restore() {
+  if (!localStorage.getItem('schedule')) return
   const res = JSON.parse(localStorage.getItem('schedule'))
   startInput.value = res.start
   endInput.value = res.end
   cigarettesCountInput.value = res.cigarettesLimit
   res.entries.forEach((entry, i) => createScheduleElement(`${i + 1}. ${entry}`))
+}
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw.js').then(function () {
+      console.log('Service Worker Registered!')
+    })
+  })
 }
