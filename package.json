@@ -1,0 +1,26 @@
+{
+  "name": "smokeless",
+  "version": "0.1.0",
+  "description": "Control your smoke",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/livesega/smokeless.git"
+  },
+  "keywords": [],
+  "author": "Sergey Vikulov<thelivesega@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/livesega/smokeless/issues"
+  },
+  "homepage": "https://github.com/livesega/smokeless#readme",
+  "devDependencies": {
+    "conventional-changelog-cli": "^2.0.34"
+  }
+}
